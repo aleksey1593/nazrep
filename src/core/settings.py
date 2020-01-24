@@ -25,7 +25,7 @@ SECRET_KEY = '%op^bj82udy537)$up7_-bcew4tc_7#e9b_)1vh!7o_m4o*=!r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "http://nazhello.herokuapp.com/"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "nazhello.herokuapp.com"]
 
 
 # Application definition
