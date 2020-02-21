@@ -1,0 +1,25 @@
+default:
+        SECRET_KEY: ""
+        DEBUG: true
+        ALLOWED HOSTS: []
+        DATABASE_URL: ""
+
+development:
+        DEBUG: true
+        ALLOWED_HOSTS:
+                - 127.0.0.1
+                - localhost
+
+heroku:
+        DEBUG: false
+        ALLOWED_HOSTS:
+                - 127.0.0.1
+                - localhost
+                - nazhello.herokuapp.com
+
+travis:
+        DEBUG: true
+        ALLOWED_HOSTS:
+                - 127.0.0.1
+                - localhost
+        SECRET_KEY: "xxx"

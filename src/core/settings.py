@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from dynaconf import settings as _settings
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,12 +21,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%op^bj82udy537)$up7_-bcew4tc_7#e9b_)1vh!7o_m4o*=!r'
+SECRET_KEY = _settings.SECRET_KEY
 
+# %op^bj82udy537)$up7_-bcew4tc_7#e9b_)1vh!7o_m4o*=!r
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = _settings.DEBUG
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "nazhello.herokuapp.com"]
+ALLOWED_HOSTS = _settings.ALLOWED_HOSTS
 
 
 # Application definition
@@ -69,6 +71,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'core.wsgi.application'
+
+db_url = _settings.DATABASE_URL
+if _settings.ENV_FOR_DYNACONF == "heroku":
+    db_url = os.getenv("DATABASE_URL")
 
 
 # Database
