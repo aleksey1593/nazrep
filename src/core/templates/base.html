@@ -8,188 +8,155 @@
 </head>
 <body>
 <div id="main_container">
-  <div class="top_bar">
-    <div class="top_search">
-      <div class="search_text"><a href="#">Поиск</a></div>
-      <input type="text" class="search_input" name="search" />
-      <input type="image" src="{% static 'images/search.gif'%}" class="search_bt"/>
-    </div>
   <div id="header">
-    <div id="logo"> <a href="#"><img src="{% static 'images/logo.png'%}" alt="" border="0" width="237" height="140" /></a> </div>
+
+    <div class="left_header">
+      <div id="logo"> <a href="#"><img src="{% static 'images/grut.png'%}" alt="" border="0" width="110" height="170" /></a> </div>
+    </div>
+
+    <div class="center_header">
+      <div class="name_magazine">
+        <div class="inscription"><a>Изделия из дерева для Вас!</a></div>
+        <div class="tel_number"><a>+375 (29) 575-40-25</a></div>
+        <div id="mts_log"> <a href="#"><img src="{% static 'images/logo_mts.png'%}" alt="" border="0" width="30" height="30" /></a> </div>
+      </div>
+    </div>
+    <div class="right_header">
+      <div class="top_search">
+        <div class="search_text"><a href="#">Поиск</a></div>
+        <input type="text" class="search_input" name="search" />
+        <input type="image" src="{% static 'images/search.gif'%}" class="search_bt"/>
+      </div>
+      <div class="basket_area">
+        <div class="basket_round">
+          <div id="basket"> <a href="#"><img src="{% static 'images/basket.png'%}" alt="" border="0" width="55" height="86" /></a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="menu_tab">
+    <ul class="menu">
+      <li><a href="#" class="nav1"> Главная</a></li>
+      <li class="divider"></li>
+      <li><a href="#" class="nav2">Каталог</a></li>
+      <li class="divider"></li>
+      <li><a href="#" class="nav4">Регистрация</a></li>
+      <li class="divider"></li>
+      <li><a href="#" class="nav4">Мой кабинет</a></li>
+      <li class="divider"></li>
+      <li><a href="#" class="nav5">Доставка</a></li>
+    </ul>
+  </div>
+  <div class="left_content">
+    <div class="title_box">Категории</div>
+    <ul class="left_menu">
+      <li class="odd"><a href="#">Разделочные доски</a></li>
+      <li class="even"><a href="#">Подставки</a></li>
+      <li class="odd"><a href="#">Брошки</a></li>
+      <li class="even"><a href="#">Сувениры</a></li>
+    </ul>
   </div>
 
-
-
-  <div id="main_content">
-     <div id="menu_tab">
-      <div class="left_menu_corner"></div>
-      <ul class="menu">
-        <li><a href="#" class="nav1"> Главная</a></li>
-        <li class="divider"></li>
-        <li><a href="#" class="nav2">Каталог</a></li>
-        <li class="divider"></li>
-        <li><a href="#" class="nav4">Регистрация</a></li>
-        <li class="divider"></li>
-        <li><a href="#" class="nav4">Мои заказы</a></li>
-        <li class="divider"></li>
-        <li><a href="#" class="nav5">Доставка</a></li>
-        <li class="divider"></li>
-        <li><a href="contact.html" class="nav6">Информация</a></li>
-        <li class="divider"></li>
-        <li><a href="contact.html" class="nav7">Корзина</a></li>
-      </ul>
-      <div class="right_menu_corner"></div>
+  <div class="center_content">
+    <div class="prod_box">
+      <div class="top_prod_box"></div>
+      <div class="center_prod_box">
+        <div class="product_title"><a href="details.html">Подставка кот</a></div>
+        <div class="product_img"><a href="details.html"><img src="{% static 'images/kot.jpg'%}" alt="" border="0" /></a></div>
+        <div class="prod_price">BYN 12,00</div>
+      </div>
+      <div class="bottom_prod_box"></div>
+      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
     </div>
-
-
-
-    <div class="left_content">
-      <div class="title_box">Категории</div>
-      <ul class="left_menu">
-        <li class="odd"><a href="#">Разделочные доски</a></li>
-        <li class="even"><a href="#">Подставки под горячее</a></li>
-        <li class="odd"><a href="#">Подносы</a></li>
-        <li class="even"><a href="#">Вешалки</a></li>
-        <li class="odd"><a href="#">Шкатулки</a></li>
-        <li class="even"><a href="#">Рамки</a></li>
-        <li class="odd"><a href="#">Полки</a></li>
-        <li class="even"><a href="#">Цветочницы</a></li>
-        <li class="odd"><a href="#">Подсвечники</a></li>
-        <li class="even"><a href="#">Стеллажи</a></li>
-        <li class="odd"><a href="#">Брошки</a></li>
-        <li class="even"><a href="#">Сувениры</a></li>
-      </ul>
-
-
-
-    <div class="center_content">
-      <div class="center_title_bar">Latest Products</div>
-      <div class="prod_box">
-        <div class="top_prod_box"></div>
-        <div class="center_prod_box">
-          <div class="product_title"><a href="details.html">Motorola 156 MX-VL</a></div>
-          <div class="product_img"><a href="details.html"><img src="images/laptop.gif" alt="" border="0" /></a></div>
-          <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
-        </div>
-        <div class="bottom_prod_box"></div>
-        <div class="prod_details_tab"> <a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img src="images/cart.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img src="images/favs.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img src="images/favorites.gif" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
+    <div class="prod_box">
+      <div class="top_prod_box"></div>
+      <div class="center_prod_box">
+        <div class="product_title"><a href="details.html">Подставка тыква</a></div>
+        <div class="product_img"><a href="details.html"><img src="{% static 'images/tykva.jpg'%}" alt="" border="0" /></a></div>
+        <div class="prod_price">BYN 12,00</div>
       </div>
-      <div class="prod_box">
-        <div class="top_prod_box"></div>
-        <div class="center_prod_box">
-          <div class="product_title"><a href="details.html">Iphone Apple</a></div>
-          <div class="product_img"><a href="details.html"><img src="images/p4.gif" alt="" border="0" /></a></div>
-          <div class="prod_price"><span class="price">270$</span></div>
-        </div>
-        <div class="bottom_prod_box"></div>
-        <div class="prod_details_tab"> <a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img src="images/cart.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img src="images/favs.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img src="images/favorites.gif" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-      </div>
-      <div class="prod_box">
-        <div class="top_prod_box"></div>
-        <div class="center_prod_box">
-          <div class="product_title"><a href="details.html">Samsung Webcam</a></div>
-          <div class="product_img"><a href="details.html"><img src="images/p5.gif" alt="" border="0" /></a></div>
-          <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
-        </div>
-        <div class="bottom_prod_box"></div>
-        <div class="prod_details_tab"> <a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img src="images/cart.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img src="images/favs.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img src="images/favorites.gif" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-      </div>
-      <div class="prod_box">
-        <div class="top_prod_box"></div>
-        <div class="center_prod_box">
-          <div class="product_title"><a href="details.html">Motorola 156 MX-VL</a></div>
-          <div class="product_img"><a href="details.html"><img src="images/laptop.gif" alt="" border="0" /></a></div>
-          <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
-        </div>
-        <div class="bottom_prod_box"></div>
-        <div class="prod_details_tab"> <a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img src="images/cart.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img src="images/favs.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img src="images/favorites.gif" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-      </div>
-      <div class="prod_box">
-        <div class="top_prod_box"></div>
-        <div class="center_prod_box">
-          <div class="product_title"><a href="details.html">Iphone Apple</a></div>
-          <div class="product_img"><a href="details.html"><img src="images/p4.gif" alt="" border="0" /></a></div>
-          <div class="prod_price"><span class="price">270$</span></div>
-        </div>
-        <div class="bottom_prod_box"></div>
-        <div class="prod_details_tab"> <a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img src="images/cart.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img src="images/favs.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img src="images/favorites.gif" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-      </div>
-      <div class="prod_box">
-        <div class="top_prod_box"></div>
-        <div class="center_prod_box">
-          <div class="product_title"><a href="details.html">Samsung Webcam</a></div>
-          <div class="product_img"><a href="details.html"><img src="images/p5.gif" alt="" border="0" /></a></div>
-          <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
-        </div>
-        <div class="bottom_prod_box"></div>
-        <div class="prod_details_tab"> <a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img src="images/cart.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img src="images/favs.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img src="images/favorites.gif" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-      </div>
-      <div class="center_title_bar">Recommended Products</div>
-      <div class="prod_box">
-        <div class="top_prod_box"></div>
-        <div class="center_prod_box">
-          <div class="product_title"><a href="details.html">Motorola 156 MX-VL</a></div>
-          <div class="product_img"><a href="details.html"><img src="images/laptop.gif" alt="" border="0" /></a></div>
-          <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
-        </div>
-        <div class="bottom_prod_box"></div>
-        <div class="prod_details_tab"> <a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img src="images/cart.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img src="images/favs.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img src="images/favorites.gif" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-      </div>
-      <div class="prod_box">
-        <div class="top_prod_box"></div>
-        <div class="center_prod_box">
-          <div class="product_title"><a href="details.html">Iphone Apple</a></div>
-          <div class="product_img"><a href="details.html"><img src="images/p4.gif" alt="" border="0" /></a></div>
-          <div class="prod_price"><span class="price">270$</span></div>
-        </div>
-        <div class="bottom_prod_box"></div>
-        <div class="prod_details_tab"> <a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img src="images/cart.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img src="images/favs.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img src="images/favorites.gif" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-      </div>
-      <div class="prod_box">
-        <div class="top_prod_box"></div>
-        <div class="center_prod_box">
-          <div class="product_title"><a href="details.html">Samsung Webcam</a></div>
-          <div class="product_img"><a href="details.html"><img src="images/p5.gif" alt="" border="0" /></a></div>
-          <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
-        </div>
-        <div class="bottom_prod_box"></div>
-        <div class="prod_details_tab"> <a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img src="images/cart.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img src="images/favs.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img src="images/favorites.gif" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-      </div>
+      <div class="bottom_prod_box"></div>
+      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
     </div>
-    <!-- end of center content -->
-    <div class="right_content">
-      <div class="shopping_cart">
-        <div class="cart_title">Shopping cart</div>
-        <div class="cart_details"> 3 items <br />
-          <span class="border_cart"></span> Total: <span class="price">350$</span> </div>
-        <div class="cart_icon"><a href="#" title="header=[Checkout] body=[&nbsp;] fade=[on]"><img src="images/shoppingcart.png" alt="" width="48" height="48" border="0" /></a></div>
+    <div class="prod_box">
+      <div class="top_prod_box"></div>
+      <div class="center_prod_box">
+        <div class="product_title"><a href="details.html">Подставка яблоко</a></div>
+        <div class="product_img"><a href="details.html"><img src="{% static 'images/yabloko.jpg'%}" alt="" border="0" /></a></div>
+        <div class="prod_price">BYN 12,00</div>
       </div>
-      <div class="title_box">What’s new</div>
-      <div class="border_box">
-        <div class="product_title"><a href="details.html">Motorola 156 MX-VL</a></div>
-        <div class="product_img"><a href="details.html"><img src="images/p2.gif" alt="" border="0" /></a></div>
-        <div class="prod_price"><span class="reduce">350$</span> <span class="price">270$</span></div>
-      </div>
-      <div class="title_box">Manufacturers</div>
-      <ul class="left_menu">
-        <li class="odd"><a href="#">Sony</a></li>
-        <li class="even"><a href="#">Samsung</a></li>
-        <li class="odd"><a href="#">Daewoo</a></li>
-        <li class="even"><a href="#">LG</a></li>
-        <li class="odd"><a href="#">Fujitsu Siemens</a></li>
-        <li class="even"><a href="#">Motorola</a></li>
-        <li class="odd"><a href="#">Phillips</a></li>
-        <li class="even"><a href="#">Beko</a></li>
-      </ul>
-      <div class="banner_adds"> <a href="#"><img src="images/bann1.jpg" alt="" border="0" /></a> </div>
+      <div class="bottom_prod_box"></div>
+      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
     </div>
-    <!-- end of right content -->
+    <div class="prod_box">
+      <div class="top_prod_box"></div>
+      <div class="center_prod_box">
+        <div class="product_title"><a href="details.html">Брошь сова</a></div>
+        <div class="product_img"><a href="details.html"><img src="{% static 'images/sova.jpg'%}" alt="" border="0" /></a></div>
+        <div class="prod_price">BYN 8,00</div>
+      </div>
+      <div class="bottom_prod_box"></div>
+      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
+    </div>
+    <div class="prod_box">
+      <div class="top_prod_box"></div>
+      <div class="center_prod_box">
+        <div class="product_title"><a href="details.html">Брошь дельфин</a></div>
+        <div class="product_img"><a href="details.html"><img src="{% static 'images/delphin.jpg'%}" alt="" border="0" /></a></div>
+        <div class="prod_price">BYN 8,00</div>
+      </div>
+      <div class="bottom_prod_box"></div>
+      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
+    </div>
+    <div class="prod_box">
+      <div class="top_prod_box"></div>
+      <div class="center_prod_box">
+        <div class="product_title"><a href="details.html">Доска стандарт</a></div>
+        <div class="product_img"><a href="details.html"><img src="{% static 'images/pryam.jpg'%}" alt="" border="0" /></a></div>
+        <div class="prod_price">BYN 25,00</div>
+      </div>
+      <div class="bottom_prod_box"></div>
+      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
+    </div>
+    <div class="prod_box">
+      <div class="top_prod_box"></div>
+      <div class="center_prod_box">
+        <div class="product_title"><a href="details.html">Доска груша</a></div>
+        <div class="product_img"><a href="details.html"><img src="{% static 'images/grusha.jpg'%}" alt="" border="0" /></a></div>
+        <div class="prod_price">BYN 35,00</div>
+      </div>
+      <div class="bottom_prod_box"></div>
+      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
+    </div>
+    <div class="prod_box">
+      <div class="top_prod_box"></div>
+      <div class="center_prod_box">
+        <div class="product_title"><a href="details.html">Доска круглая</a></div>
+        <div class="product_img"><a href="details.html"><img src="{% static 'images/kruglaya.jpg'%}" alt="" border="0" /></a></div>
+        <div class="prod_price">BYN 30,00</div>
+      </div>
+      <div class="bottom_prod_box"></div>
+      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
+    </div>
+    <div class="prod_box">
+      <div class="top_prod_box"></div>
+      <div class="center_prod_box">
+        <div class="product_title"><a href="details.html">Сувенир обезьяна</a></div>
+        <div class="product_img"><a href="details.html"><img src="{% static 'images/obezyana.jpg'%}" alt="" border="0" /></a></div>
+        <div class="prod_price">BYN 60,00</div>
+      </div>
+      <div class="bottom_prod_box"></div>
+      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
+    </div>
   </div>
-  <!-- end of main content -->
   <div class="footer">
-    <div class="left_footer"> Template name. All Rights Reserved 2008</div>
-    <div class="right_footer"> <a href="#">Главная</a> <a href="#">Каталог</a> <a href="#">Регистрация</a> <a href="#">Мои заказы</a> <a href="contact.html">Доставка</a> <a href="#">Информация</a> </div>
+    <div class="menu_area"> <a href="#">Главная</a> <a href="#">Каталог</a> <a href="#">Регистрация</a> <a href="#">Мой кабинет</a> <a href="contact.html">Доставка</a> </div>
+    <div class="left_footer">
+      <div id="mts_logo"><img src="{% static 'images/logo_mts.png'%}" alt="" border="0" width="30" height="30" /></a> </div>
+      <p>ИП Харьянов Вадим Анатольевич</p><p>Звоните по номеру:+375(29) 575 40 25</p></div>
+    <div class="right_footer"><p>Время работы:</p><p>9:00 - 19:00 (без выходных)</p></div>
   </div>
 </div>
+<!-- end of main_container -->
 </body>
 </html>
