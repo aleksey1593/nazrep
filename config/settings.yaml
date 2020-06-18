@@ -2,7 +2,7 @@ default:
         SECRET_KEY: ""
         DEBUG: true
         ALLOWED HOSTS: []
-        DATABASE_URL: ""
+        DATABASE_URL: "postgresql://postgres:afx432k94003755@localhost:5432/nazrep"
 
 development:
         DEBUG: true
@@ -22,4 +22,5 @@ travis:
         ALLOWED_HOSTS:
                 - 127.0.0.1
                 - localhost
+        DATABASE_URL: "postgresql://postgres:afx432k94003755@localhost:5432/nazrep"
         SECRET_KEY: "xxx"

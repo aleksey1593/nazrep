@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 from pathlib import Path
 from dynaconf import settings as _settings
+import dj_database_url
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).parent.parent.parent.resolve()
@@ -87,17 +89,7 @@ if _settings.ENV_FOR_DYNACONF == "heroku":
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'NAME': 'nazrep',
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': 'postgres',
-        'PASSWORD': 'afx432k94003755',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+DATABASES = {"default": dj_database_url.parse(db_url, conn_max_age=600)}
 
 
 # Password validation
