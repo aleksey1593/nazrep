@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% for product_image in products_images %}
+    <div class="prod_box" class="{{ product_image.product.category.name }}">
+      <div class="top_prod_box"></div>
+      <div class="center_prod_box">
+        <div class="product_title"><a href="{% url 'product' product_image.product.id %}"> {{ product_image.product.name }} </a></div>
+        <div class="product_img"><a href="{% url 'product' product_image.product.id %}"><img src="{{ product_image.image.url }}" alt="" border="0" /></a></div>
+        {% if product_image.product.discount %}
+        <div class="prod_discount">Акция {{ product_image.product.discount }}%</div>
+        <div class="prod_price"><span class="reduce">{{ product_image.product.price }} BYN</span> <span class="price">{{ product_image.product.price_with_discount }} BYN</span></div>
+        {% else %}
+        <div class="prod_price">{{ product_image.product.price_with_discount }} BYN</div>
+        {% endif %}
+      </div>
+      <div class="bottom_prod_box"></div>
+      <div class="prod_details_tab"> <a href="{% url 'product' product_image.product.id %}" class="prod_details">Детали</a> </div>
+    </div>
+{% endfor %}
+{% endblock content %}

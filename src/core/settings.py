@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+    'orders',
+    'products',
+    'search',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +71,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'orders.context_processors.getting_basket_info',
+                'orders.context_processors.category',
             ],
         },
     },
@@ -85,8 +90,12 @@ if _settings.ENV_FOR_DYNACONF == "heroku":
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'nazrep',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'USER': 'postgres',
+        'PASSWORD': 'afx432k94003755',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -134,3 +143,6 @@ STATIC_ROOT = STATIC_ROOT_DIR.as_posix()
 STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [PROJECT_DIR / "static"]
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(PROJECT_DIR, "static", "media")

@@ -4,159 +4,88 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Изделия из дерева</title>
 <link rel="stylesheet" type="text/css" href="{% static 'style.css'%}" />
-<script type="text/javascript" src="{% static 'js/boxOver.js'%}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
 </head>
 <body>
+<div class="wrapper">
 <div id="main_container">
   <div id="header">
 
     <div class="left_header">
-      <div id="logo"> <a href="#"><img src="{% static 'images/grut.png'%}" alt="" border="0" width="110" height="170" /></a> </div>
+      <div id="logo"> <a href="/"><img src="{% static 'images/grut.png'%}" alt="" border="0" width="110" height="170" /></a> </div>
     </div>
-
     <div class="center_header">
       <div class="name_magazine">
         <div class="inscription"><a>Изделия из дерева для Вас!</a></div>
         <div class="tel_number"><a>+375 (29) 575-40-25</a></div>
-        <div id="mts_log"> <a href="#"><img src="{% static 'images/logo_mts.png'%}" alt="" border="0" width="30" height="30" /></a> </div>
+        <div id="mts_log"> <img src="{% static 'images/logo_mts.png'%}" alt="" border="0" width="30" height="30" /></a> </div>
       </div>
     </div>
     <div class="right_header">
       <div class="top_search">
-        <div class="search_text"><a href="#">Поиск</a></div>
-        <input type="text" class="search_input" name="search" />
-        <input type="image" src="{% static 'images/search.gif'%}" class="search_bt"/>
+        <div class="search_text">Поиск</a></div>
+        <form action="{% url 'search' %}" method="get">
+          <input type="text" class="search_input" name="search" />
+          <input type="image" src="{% static 'images/search.gif'%}" class="search_bt"/>
+        </form>
       </div>
       <div class="basket_area">
-        <div class="basket_round">
-          <div id="basket"> <a href="#"><img src="{% static 'images/basket.png'%}" alt="" border="0" width="55" height="86" /></a> </div>
+        <div class="basket_round"><div class="basket_number"><span id="basket_total_nmb">
+          {% if products_total_nmb %}
+            ({{ products_total_nmb }})</span></div>
+          {% else %}
+            (0)</span></div>
+          {% endif %}
+          <div class="basket"> <a href="{% url 'checkout' %}"><img src="{% static 'images/basket.png'%}" alt="" border="0" width="55" height="86" /></a></div>
+        </div>
+        <div class="basket-items hidden">
+          <ul class="">
+          {% for product_in_basket in products_in_basket %}
+            <li>{{ product_in_basket.product.name }}, {{ product_in_basket.nmb }} шт. по {{ product_in_basket.price_per_item }} BYN
+            <a class="delete-item" href="" data-product_id="{{ product_in_basket.id }}">x</a>
+            </li>
+          {% endfor %}
+          </ul>
         </div>
       </div>
     </div>
   </div>
   <div id="menu_tab">
     <ul class="menu">
-      <li><a href="#" class="nav1"> Главная</a></li>
-      <li class="divider"></li>
-      <li><a href="#" class="nav2">Каталог</a></li>
-      <li class="divider"></li>
-      <li><a href="#" class="nav4">Регистрация</a></li>
-      <li class="divider"></li>
-      <li><a href="#" class="nav4">Мой кабинет</a></li>
-      <li class="divider"></li>
-      <li><a href="#" class="nav5">Доставка</a></li>
+      <li><a href="/" class="nav1">Главная</a></li>
+      <li><a href="{% url 'discount' %}" class="nav2">Акции</a></li>
+      <li><a href="{% url 'info_shop' %}" class="nav4">О магазине</a></li>
+      <li><a href="{% url 'delivery' %}" class="nav5">Доставка</a></li>
     </ul>
   </div>
   <div class="left_content">
     <div class="title_box">Категории</div>
     <ul class="left_menu">
-      <li class="odd"><a href="#">Разделочные доски</a></li>
-      <li class="even"><a href="#">Подставки</a></li>
-      <li class="odd"><a href="#">Брошки</a></li>
-      <li class="even"><a href="#">Сувениры</a></li>
+      {% for category in categories %}
+      {% if category.id in even %}
+        <li class="even"><a href="{{ category.get_url }}">{{ category.name }}</a></li>
+      {% else %}
+        <li class="odd"><a href="{{ category.get_url }}">{{ category.name }}</a></li>
+      {% endif %}
+      {% endfor %}
     </ul>
   </div>
-
   <div class="center_content">
-    <div class="prod_box">
-      <div class="top_prod_box"></div>
-      <div class="center_prod_box">
-        <div class="product_title"><a href="details.html">Подставка кот</a></div>
-        <div class="product_img"><a href="details.html"><img src="{% static 'images/kot.jpg'%}" alt="" border="0" /></a></div>
-        <div class="prod_price">BYN 12,00</div>
-      </div>
-      <div class="bottom_prod_box"></div>
-      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-    </div>
-    <div class="prod_box">
-      <div class="top_prod_box"></div>
-      <div class="center_prod_box">
-        <div class="product_title"><a href="details.html">Подставка тыква</a></div>
-        <div class="product_img"><a href="details.html"><img src="{% static 'images/tykva.jpg'%}" alt="" border="0" /></a></div>
-        <div class="prod_price">BYN 12,00</div>
-      </div>
-      <div class="bottom_prod_box"></div>
-      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-    </div>
-    <div class="prod_box">
-      <div class="top_prod_box"></div>
-      <div class="center_prod_box">
-        <div class="product_title"><a href="details.html">Подставка яблоко</a></div>
-        <div class="product_img"><a href="details.html"><img src="{% static 'images/yabloko.jpg'%}" alt="" border="0" /></a></div>
-        <div class="prod_price">BYN 12,00</div>
-      </div>
-      <div class="bottom_prod_box"></div>
-      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-    </div>
-    <div class="prod_box">
-      <div class="top_prod_box"></div>
-      <div class="center_prod_box">
-        <div class="product_title"><a href="details.html">Брошь сова</a></div>
-        <div class="product_img"><a href="details.html"><img src="{% static 'images/sova.jpg'%}" alt="" border="0" /></a></div>
-        <div class="prod_price">BYN 8,00</div>
-      </div>
-      <div class="bottom_prod_box"></div>
-      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-    </div>
-    <div class="prod_box">
-      <div class="top_prod_box"></div>
-      <div class="center_prod_box">
-        <div class="product_title"><a href="details.html">Брошь дельфин</a></div>
-        <div class="product_img"><a href="details.html"><img src="{% static 'images/delphin.jpg'%}" alt="" border="0" /></a></div>
-        <div class="prod_price">BYN 8,00</div>
-      </div>
-      <div class="bottom_prod_box"></div>
-      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-    </div>
-    <div class="prod_box">
-      <div class="top_prod_box"></div>
-      <div class="center_prod_box">
-        <div class="product_title"><a href="details.html">Доска стандарт</a></div>
-        <div class="product_img"><a href="details.html"><img src="{% static 'images/pryam.jpg'%}" alt="" border="0" /></a></div>
-        <div class="prod_price">BYN 25,00</div>
-      </div>
-      <div class="bottom_prod_box"></div>
-      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-    </div>
-    <div class="prod_box">
-      <div class="top_prod_box"></div>
-      <div class="center_prod_box">
-        <div class="product_title"><a href="details.html">Доска груша</a></div>
-        <div class="product_img"><a href="details.html"><img src="{% static 'images/grusha.jpg'%}" alt="" border="0" /></a></div>
-        <div class="prod_price">BYN 35,00</div>
-      </div>
-      <div class="bottom_prod_box"></div>
-      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-    </div>
-    <div class="prod_box">
-      <div class="top_prod_box"></div>
-      <div class="center_prod_box">
-        <div class="product_title"><a href="details.html">Доска круглая</a></div>
-        <div class="product_img"><a href="details.html"><img src="{% static 'images/kruglaya.jpg'%}" alt="" border="0" /></a></div>
-        <div class="prod_price">BYN 30,00</div>
-      </div>
-      <div class="bottom_prod_box"></div>
-      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-    </div>
-    <div class="prod_box">
-      <div class="top_prod_box"></div>
-      <div class="center_prod_box">
-        <div class="product_title"><a href="details.html">Сувенир обезьяна</a></div>
-        <div class="product_img"><a href="details.html"><img src="{% static 'images/obezyana.jpg'%}" alt="" border="0" /></a></div>
-        <div class="prod_price">BYN 60,00</div>
-      </div>
-      <div class="bottom_prod_box"></div>
-      <div class="prod_details_tab"> <a href="#" title="header=[добавить в корзину] body=[&nbsp;] fade=[on]"><img src="{% static 'images/cart.gif'%}" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
-    </div>
-  </div>
-  <div class="footer">
-    <div class="menu_area"> <a href="#">Главная</a> <a href="#">Каталог</a> <a href="#">Регистрация</a> <a href="#">Мой кабинет</a> <a href="contact.html">Доставка</a> </div>
-    <div class="left_footer">
-      <div id="mts_logo"><img src="{% static 'images/logo_mts.png'%}" alt="" border="0" width="30" height="30" /></a> </div>
-      <p>ИП Харьянов Вадим Анатольевич</p><p>Звоните по номеру:+375(29) 575 40 25</p></div>
-    <div class="right_footer"><p>Время работы:</p><p>9:00 - 19:00 (без выходных)</p></div>
+    {% block content %}
+    {% endblock content %}
   </div>
 </div>
+<div class="footer">
+  <div class="menu_area"> <a href="/">Главная</a> <a href="{% url 'discount' %}">Акции</a> <a href="{% url 'info_shop' %}">О магазине</a> <a href="{% url 'delivery' %}">Доставка</a> </div>
+  <div class="left_footer">
+    <div id="mts_logo"><img src="{% static 'images/logo_mts.png'%}" alt="" border="0" width="30" height="30" /></a> </div>
+    <p>ИП Харьянов Вадим Анатольевич</p><p>Звоните по номеру:+375(29) 575 40 25</p></div>
+  <div class="right_footer"><p>Время работы:</p><p>9:00 - 19:00 (без выходных)</p></div>
+</div>
+  <form id="form_buying_product" action="{% url 'basket_adding' %}">{% csrf_token %}
+  </form>
 <!-- end of main_container -->
 </body>
 </html>

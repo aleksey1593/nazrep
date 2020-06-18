@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="product_container">
+    <div class="prod_box_big"></div>
+    <div class="top_prod_box_big"></div>
+    <div class="center_prod_box_big">Интернет-магазин предлает вам изделия из дерева. ИП Харьянов, УНП</div>
+    <div class="bottom_prod_box_big"></div>
+
+</div>
+
+{% for lst_product in latest_product.productimage_set.all %}
+<div class="right_content">
+      <div class="title_box">Новинка</div>
+      <div class="border_box">
+        <div class="product_title"><a href="{% url 'product' latest_product.id %}">{{ latest_product.name }}</div>
+        <div class="product_img"><a href="{% url 'product' latest_product.id %}"><img src="{{ lst_product.image.url }}" alt="" border="0" /></a></div>
+        {% if latest_product.discount %}
+        <div class="prod_price"><span class="reduce">{{ latest_product.price }} BYN</span> <span class="price">{{ latest_product.price_with_discount }} BYN</span></div>
+        <div class="prod_discount">Скидка на товар {{ latest_product.discount }}%</div>
+        {% else %}
+        <div class="prod_price"><span class="price">{{ latest_product.price_with_discount }} BYN</span></div>
+        {% endif %}
+      </div>
+</div>
+{% endfor %}
+{% endblock %}

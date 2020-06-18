@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="product_container">
+      <div class="center_title_bar">Корзина</div>
+      <div class="prod_box_big">
+        <div class="top_prod_box_big"></div>
+        <div class="center_prod_box_big">
+            {% if products_in_basket %}
+                <form class="order_info" method="post">{% csrf_token %}
+                    <div class="input_container">
+                        <div class ="input_customer">
+                            <label>Ваше имя:</label>
+                            <span>{{ form.name.errors }}</span>
+                            <input type="text" name="{{ form.name.html_name }}">
+                        </div>
+                        <div class ="input_customer">
+                            <label>Ваш номер телефона:</label>
+                            <span>{{ form.phone.errors }}</span>
+                            <input type="text" name="{{ form.phone.html_name }}">
+                        </div>
+                        <div class ="input_customer">
+                            <label>Адрес доставки:</label>
+                            <span>{{ form.address.errors }}</span>
+                            <input type="text" name="{{ form.address.html_name }}">
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <th width="155">Название товара</th>
+                            <th>Количество</th>
+                            <th>Цена за единицу</th>
+                            <th>Общая цена</th>
+                        </thead>
+                        <tbody>
+                            {% for product_in_basket in products_in_basket %}
+                                <tr>
+                                    <td>
+                                        {{ product_in_basket.product.name }}
+                                    </td>
+                                    <td>
+                                        <input value="{{ product_in_basket.nmb }}" type="number"
+                                               class="product-in-basket-nmb" name="product_in_basket_{{ product_in_basket.id }}">
+                                    </td>
+                                    <td>
+                                        <span class="product-price">
+                                            {{ product_in_basket.price_per_item}}
+                                        </span> BYN
+                                    </td>
+                                    <td>
+                                        <span class="total-product-in-basket-amount">
+                                            {{ product_in_basket.total_price }}
+                                        </span> BYN
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                <div class="text-right">
+                    <b>Итого: </b> <span id="total_order_amount"></span> BYN
+                </div>
+                <div class="text-right">
+                    <button type="submit">Заказать</button>
+                </div>
+                </form>
+            {% else %}
+                Ваша корзина пуста!
+            {% endif %}
+        </div>
+        <div class="bottom_prod_box_big"></div>
+    </div>
+</div>
+{% for lst_product in latest_product.productimage_set.all %}
+<div class="right_content">
+      <div class="title_box">Новинка</div>
+      <div class="border_box">
+        <div class="product_title"><a href="{% url 'product' latest_product.id %}">{{ latest_product.name }}</div>
+        <div class="product_img"><a href="{% url 'product' latest_product.id %}"><img src="{{ lst_product.image.url }}" alt="" border="0" /></a></div>
+        {% if latest_product.discount %}
+        <div class="prod_price"><span class="reduce">{{ latest_product.price }} BYN</span> <span class="price">{{ latest_product.price_with_discount }} BYN</span></div>
+        <div class="prod_discount">Скидка на товар {{ latest_product.discount }}%</div>
+        {% else %}
+        <div class="prod_price"><span class="price">{{ latest_product.price_with_discount }} BYN</span></div>
+        {% endif %}
+      </div>
+</div>
+{% endfor %}
+{% endblock %}
